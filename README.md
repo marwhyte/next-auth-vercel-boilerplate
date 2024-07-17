@@ -4,7 +4,7 @@ This a boilerplate providing registration and login with credentials and google 
 
 ## Getting Started
 
-First, you'll need to configure the Vercel project with the proper .env variables. To get started, fork this project and [follow this guide](https://nextjs.org/learn/dashboard-app/setting-up-your-database#connect-and-deploy-your-project) for setting up the database in Vercel.
+First, you'll need to configure the Vercel project with the proper .env variables. To get started, make sure you have forked this repo and [follow this guide](https://nextjs.org/learn/dashboard-app/setting-up-your-database#connect-and-deploy-your-project) for setting up the database in Vercel.
 
 You'll also need to set up Google credentials for a new project through the Google cloud console, placing the following environment variables in your .env file:
 
