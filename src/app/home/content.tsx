@@ -233,7 +233,61 @@ export default function Content({ session }: Props) {
           <div className="flex-1 text-sm font-semibold leading-6 text-gray-900">
             Dashboard
           </div>
-          <a href="#">
+          <Menu as="div" className="relative inline-block text-left">
+            <div>
+              <MenuButton className="w-full flex items-center gap-x-4  text-sm font-semibold leading-6 text-gray-900 hover:bg-gray-50">
+                <span className="sr-only">Your profile</span>
+                {session?.user?.image ? (
+                  <Image
+                    width={32}
+                    height={32}
+                    alt=""
+                    src={session?.user?.image}
+                    className="h-8 w-8 rounded-full bg-gray-50"
+                  />
+                ) : (
+                  <div className="h-8 w-8 rounded-full bg-gray-50">
+                    {session?.user?.name?.[0]}
+                  </div>
+                )}
+              </MenuButton>
+            </div>
+
+            <MenuItems
+              transition
+              anchor="bottom start"
+              style={{ zIndex: 1000 }}
+              className="absolute right-0 z-1000 mt-2 w-56 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 transition focus:outline-none data-[closed]:scale-95 data-[closed]:transform data-[closed]:opacity-0 data-[enter]:duration-100 data-[leave]:duration-75 data-[enter]:ease-out data-[leave]:ease-in"
+            >
+              <div className="px-4 py-3">
+                <p className="text-sm">Signed in as</p>
+                <p className="truncate text-sm font-medium text-gray-900">
+                  {session?.user?.email}
+                </p>
+              </div>
+              <div className="py-1">
+                <MenuItem>
+                  <a
+                    href="#"
+                    className="block px-4 py-2 text-sm text-gray-700 data-[focus]:bg-gray-100 data-[focus]:text-gray-900"
+                  >
+                    Account settings
+                  </a>
+                </MenuItem>
+              </div>
+              <div className="py-1">
+                <MenuItem>
+                  <button
+                    onClick={() => doLogout()}
+                    className="block w-full px-4 py-2 text-left text-sm text-gray-700 data-[focus]:bg-gray-100 data-[focus]:text-gray-900"
+                  >
+                    Sign out
+                  </button>
+                </MenuItem>
+              </div>
+            </MenuItems>
+          </Menu>
+          {/* <a href="#">
             <span className="sr-only">Your profile</span>
             {session?.user?.image ? (
               <Image
@@ -248,7 +302,7 @@ export default function Content({ session }: Props) {
                 {session?.user?.name?.[0]}
               </div>
             )}
-          </a>
+          </a> */}
         </div>
 
         <main className="py-10 lg:pl-72">
